@@ -1,0 +1,101 @@
+.outerBox {
+    box-flex: 1;
+    padding: 45px 40px 30px;
+    width: 400px;
+    top: 35%;
+    left: 50%;
+    height: 400px;
+    margin-top: 5em;
+    margin-left: 25em; 
+    margin-right: 25em;
+    margin-bottom: 5em;
+    border-radius: 8px;
+    border: 1px solid #000000;
+  }
+  
+  .fundooNotesRainbow {
+    background-image: linear-gradient(
+      to left,
+      green,
+      rgb(9, 136, 209),
+      yellow,
+      red,
+      rgb(20, 137, 214)
+    );
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .createAccountDiv {
+    padding-top: 20px;
+  }
+  
+  .createAccount {
+    color: #0000ff;
+    padding-bottom: 0;
+    font-family: "Google Sans", "Noto Sans Myanmar UI";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  .inputBox {
+      padding: 24px 0 0 ;
+  }
+  
+  .firstAndLast {
+      display: inline-block;
+      display: flex;
+  }
+  
+  .firstName{
+      width: 214.5px;
+      margin-right: 10px;
+  }
+  
+  .lastName{
+      width: 214.5px;
+      margin-left: 10px;
+  }
+  
+  .emailId{
+      padding-top: 24px;
+  }
+  
+  .password {
+      display: inline-block;
+      display: flex;
+  }
+  
+  .firstPassword{
+      width: 200px;
+      margin-top: 24px;
+      margin-left: 0;
+      margin-right: 10px;
+  }
+  
+  .confirmPassword{
+      margin-top: 24px;
+      width: 200px;
+      margin-left: 10px;
+      margin-right: 0;
+  }
+  
+  .showPasswordMsg{
+      font-size: 14px;
+  }
+  
+  .signUp{
+      color :#0000ff;
+      margin-top: 48px;
+      margin-left: auto;
+      margin-right: 0;
+  
+  }
