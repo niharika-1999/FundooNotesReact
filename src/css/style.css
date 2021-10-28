@@ -1,101 +1,166 @@
-.outerBox {
-    box-flex: 1;
-    padding: 45px 40px 30px;
-    width: 400px;
-    top: 35%;
-    left: 50%;
-    height: 400px;
-    margin-top: 5em;
-    margin-left: 25em; 
-    margin-right: 25em;
-    margin-bottom: 5em;
-    border-radius: 8px;
-    border: 1px solid #000000;
-  }
-  
-  .fundooNotesRainbow {
-    background-image: linear-gradient(
-      to left,
-      green,
-      rgb(9, 136, 209),
-      yellow,
-      red,
-      rgb(20, 137, 214)
-    );
+@media only screen and (min-width: 800px) {
+    .imgBox{
+        height: auto;
+        min-height: 500px;
+        position: relative;
+        width: 800px;
+        right: 50%;
+        left: 50%;
+        margin-top: 4em; 
+        margin-left: -400px; 
+        margin-right: -400px;
+        margin-bottom: 5em;
+        border-radius: 8px;
+        border: 1px solid #dadce0;
+        transition: delay 0.5s;
+        transition: width 1s;
+    }
+    .img{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .innerImg{
+        display: inline-block;
+        display: flex;
+    }
+    }
+    
+    @media only screen and (max-width: 900px) {
+        .imgBox{
+            position: relative;
+            width: 498px;
+            height: auto;
+            min-height: 500px;
+            right: 50%;
+            left: 50%;    
+            margin-top: 4em; 
+            margin-left: -246px; 
+            margin-bottom: 5em;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            transition: width 0.5s;
+        }
+        .img{
+            margin-left: 5%;
+            margin-right: 5%;
+            display: none;
+            transition: delay 1s;
+            transition: width 1s;
+        }
+        }
+    .outerBox {
+      box-flex: 1;
+      padding: 48px 40px 36px;
+    }
+    
+    .rainbow {
     font-weight: bold;
-    font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    font-size: 25px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande","Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
+    }
+      
+    .rainbow span:nth-child(5n + 1) {
+      color: #651fff;
+    }
+    
+    .rainbow span:nth-child(5n + 2){
+      color: #ffda07;
+    }
+    
+    .rainbow span:nth-child(5n + 3){
+      color: #fa0a06;
+    }
+    
+    .rainbow span:nth-child(5n + 4){
+      color: #ab47bc;
+    }
+    
+    .rainbow span:nth-child(5n + 5){
+      color: #00bcd4;
+    }
   
-  .createAccountDiv {
-    padding-top: 20px;
-  }
+    .rainbow span:nth-child(5n + 6){
+      color: #4caf50;
+    }
   
-  .createAccount {
-    color: #0000ff;
-    padding-bottom: 0;
-    font-family: "Google Sans", "Noto Sans Myanmar UI";
-    font-size: 24px;
+    .rainbow span:nth-child(5n + 7) {
+      color: #ff7707;
+    }
+  
+  .message {
+    color: rgba(20, 19, 19, 0.6);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
-    line-height: 1.3333;
+    font-size: 0.75rem;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+    text-align: left;
+    margin-top: 4px;
+    margin-right: 14px;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-left: 14px;
   }
   
-  .inputBox {
-      padding: 24px 0 0 ;
+  .headingAndSubHeading {
+    margin-top: 4px;
+    margin-right: 14px;
+    margin-bottom: 0;
+    margin-left: 0px;
   }
   
-  .firstAndLast {
-      display: inline-block;
-      display: flex;
+  .showPassword{
+    margin-top: 4px;
+    margin-right: 14px;
+    margin-bottom: 0;
+    margin-left: 0px;
   }
   
-  .firstName{
-      width: 214.5px;
-      margin-right: 10px;
+  .signInSignUp {
+    display: inline-block;
+    display: flex;
   }
   
-  .lastName{
-      width: 214.5px;
-      margin-left: 10px;
+  .signIn {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #1a73e8;
+    margin-top: 48px;
+    margin-left: 20px;
+    margin-right: auto;
+    padding: 6px 0;
   }
   
-  .emailId{
-      padding-top: 24px;
+  .create {
+    margin-top: 48px;
+    margin-left: auto;
+    margin-right: 12px;
   }
   
-  .password {
-      display: inline-block;
-      display: flex;
+  .names {
+    display: inline-block;
+    display: flex;
   }
   
-  .firstPassword{
-      width: 200px;
-      margin-top: 24px;
-      margin-left: 0;
-      margin-right: 10px;
+  .firstName {
+    width: 214.5px;
+    margin-right: 10px;
   }
   
-  .confirmPassword{
-      margin-top: 24px;
-      width: 200px;
-      margin-left: 10px;
-      margin-right: 0;
+  .lastName {
+    width: 214.5px;
+    margin-left: 10px;
   }
   
-  .showPasswordMsg{
-      font-size: 14px;
+  .passwords {
+    display: inline-block;
+    display: flex;
   }
   
-  .signUp{
-      color :#0000ff;
-      margin-top: 48px;
-      margin-left: auto;
-      margin-right: 0;
-  
+  .confirmPassword {
+    width: 214.5px;
+    margin-left: 10px;
   }
