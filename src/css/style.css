@@ -66,31 +66,31 @@
     }
       
     .rainbow span:nth-child(5n + 1) {
-      color: #ab47bc;
+      color:#4caf50 ;
     }
     
     .rainbow span:nth-child(5n + 2){
-      color: #651fff;
+      color:#00bcd4;
     }
     
     .rainbow span:nth-child(5n + 3){
-      color: #00bcd4;
+      color:#651fff;
     }
     
     .rainbow span:nth-child(5n + 4){
-      color: #4caf50;
+      color:#ffda07;
     }
     
     .rainbow span:nth-child(5n + 5){
-      color: #ffda07;
+      color:#fa0a06;
     }
   
     .rainbow span:nth-child(5n + 6){
-      color: #ff7707;
+      color:#ff7707;
     }
   
     .rainbow span:nth-child(5n + 7) {
-      color: #fa0a06;
+      color:#ab47bc;
     }
   
   .message {

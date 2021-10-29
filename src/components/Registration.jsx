@@ -14,7 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link } from "react-router-dom";
 
-export default function CreateAccount() {  
+export default function Registration() {  
 
     const [firstName, setFirstName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
