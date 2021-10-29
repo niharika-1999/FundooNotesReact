@@ -1,0 +1,65 @@
+.rainbow {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande","Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .rainbow span:nth-child(5n + 1) {
+    color: #ab47bc;
+  }
+  
+  .rainbow span:nth-child(5n + 2) {
+    color: #651fff;
+  }
+  
+  .rainbow span:nth-child(5n + 3) {
+    color: #00bcd4;
+  }
+  
+  .rainbow span:nth-child(5n + 4) {
+    color: #4caf50;
+  }
+  
+  .rainbow span:nth-child(5n + 5) {
+    color: #ffda07;
+  }
+  
+  .rainbow span:nth-child(5n + 6) {
+    color: #ff7707;
+  }
+  
+  .rainbow span:nth-child(5n + 7) {
+    color: #fa0a06;
+  }
+  
+  .headingAndSubHeading {
+    margin-top: 4px;
+    margin-right: 14px;
+    margin-bottom: 0;
+    margin-left: 0px;
+  }
+  
+  .newButtons {
+    display: inline-block;
+    display: flex;
+  }
+  
+  .forgotPassword {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #1a73e8;
+    margin-top: 48px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 6px 0;
+  }
+  
+  .login {
+    margin-top: 48px;
+    margin-left: 10px !important;
+    margin-right: 10px !important ;
+  }
