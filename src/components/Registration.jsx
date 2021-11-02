@@ -13,6 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link } from "react-router-dom";
+import userPost from "../service/registrationAPI";
 
 export default function Registration() {  
 
@@ -46,6 +47,12 @@ export default function Registration() {
         if (password === passwordConfirmation) {
             setPasswordConfirmationNotValid(true);
         }
+        userPost("users",{
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+          });
       };
     const handleClickShowPasswordConfirmation = () => {
         setShowPasswordConfirmation(!showPasswordConfirmation)
@@ -244,4 +251,4 @@ export default function Registration() {
             </div>
         </div>
     )
-}
+} 
