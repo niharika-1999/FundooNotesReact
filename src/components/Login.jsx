@@ -40,175 +40,173 @@ export default function Login() {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-    const headerStyle = { margin: 0 };
     return (
-      <div className="imgBoxForLogin">
-        <div className="outerBox">
-          <div className="outerPadding"></div>
-          <div>
-            <div className="main" align="center">
-              <Grid align="center" className="headingAndSubHeading">
-                <h1 class="rainbow" style={headerStyle}>
-                  <span>F</span>
-                  <span>u</span>
-                  <span>n</span>
-                  <span>d</span>
-                  <span>o</span>
-                  <span>o</span>
-                  <span>N</span>
-                  <span>o</span>
-                  <span>t</span>
-                  <span>e</span>
-                  <span>s</span>
-                </h1>
-                <br />
-                <Typography variant="h6" gutterBottom>
-                  <b> Sign In</b>
-                </Typography>
-                <Typography variant="h7" gutterBottom>
-                  <b> Use your FundooNotes Account</b>
-                </Typography>
-              </Grid>
-              <div style={{ width: "418px" }}>
-                <form id="form" className="formLogin">
-                  <div className="innerImgbox2">
-                    <div
-                      className="inputBoxForLogin"
-                      style={{ width: "366px", margin: "26px", padding: "0px" }}
-                    >
-                      <div className="emailLogin" align="center">
-                        <TextField
-                          required
-                          id="full-width-text-field"
-                          style={{ width: 365 }}
-                          variant="outlined"
-                          name="email"
-                          color="primary"
-                          type="email"
-                          size="small"
-                          label="Email"
-                          placeholder="abc.123@example.com"
-                          error={emailNotValid}
-                          helperText={
-                            emailNotValid
-                              ? "This field cannot be empty"
-                              : "You can use letters, numbers and periods"
-                          }
-                          onChange={(event) => setEmail(event.target.value)}
-                        />
-                      </div>
-                      <br />
-                      <div className="passwordLogin" align="center">
-                        <div className="pass2">
-                          <FormControl variant="outlined" fullWidth required>
-                            <InputLabel htmlFor="outlined-adornment-password">
-                              Password
-                            </InputLabel>
-                            <OutlinedInput
-                              id="outlined-adornment-password"
-                              fullwidth
-                              type={showPassword ? "text" : "password"}
-                              size="small"
-                              error={passwordNotValid}
-                              helperText={
-                                passwordNotValid
-                                  ? "This field cannot be empty"
-                                  : ""
-                              }
-                              onChange={(event) =>
-                                setPassword(event.target.value)
-                              }
-                              endAdornment={
-                                <InputAdornment position="start">
-                                  <IconButton
-                                    size="small"
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
-                                  >
-                                    {showPassword ? (
-                                      <VisibilityOff />
-                                    ) : (
-                                      <Visibility />
-                                    )}
-                                  </IconButton>
-                                </InputAdornment>
-                              }
-                              label="Password"
-                              name="passwordConfirmation"
-                              color="primary"
-                              placeholder="Enter your password"
-                            />
-                          </FormControl>
-                        </div>
-                      </div>
-                      <div className="messageLogin" align="center">
-                        <span>
-                          Use 8 or more characters which consist of letters, numbers
-                          & symbols
-                        </span>
-                      </div>
-                      <br />
-                      <div>
-                        <div className="showPasswordLogin">
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                value="allowExtraEmails"
-                                color="primary"
-                                onClick={handleClickShowPasswords}
-                                onMouseDown={handleMouseDownPassword}
-                              />
+        <div className="imgBoxForLogin">
+          <div className="outerBox">
+            <div className="outerPadding"></div>
+            <div>
+              <div className="main" align="center">
+                <Grid align="center" className="headingAndSubHeading">
+                  <span className="mainLogoLogin">FundooNotes</span>
+                  <br />
+                  <Typography variant="h6" gutterBottom>
+                    <b> Sign In</b>
+                  </Typography>
+                  <Typography variant="h7" gutterBottom>
+                    <b> Use your FundooNotes Account</b>
+                  </Typography>
+                </Grid>
+                <div style={{ width: "418px" }}>
+                  <form id="form" className="formLogin">
+                    <div className="innerImgbox2">
+                      <div
+                        className="inputBoxForLogin"
+                        style={{ width: "366px", margin: "26px", padding: "0px" }}
+                      >
+                        <div className="emailLogin" align="center">
+                          <TextField
+                            required
+                            id="full-width-text-field"
+                            style={{ width: 365 }}
+                            variant="outlined"
+                            name="email"
+                            color="primary"
+                            type="email"
+                            size="small"
+                            label="Email"
+                            placeholder="abc@example.com"
+                            error={emailNotValid}
+                            helperText={
+                              emailNotValid
+                                ? "This field cannot be empty"
+                                : "You can use letters, numbers and periods"
                             }
-                            label={
-                              <span style={{ fontSize: "0.75rem" }}>
-                                Show Password
-                              </span>
-                            }
+                            onChange={(event) => {
+                              setEmail(event.target.value);
+                              if (emailNotValid) {
+                                setEmailNotValid(false);
+                              }
+                            }}
                           />
                         </div>
-                        <div className="forgotPassword" align="right">
-                          <Button
-                            variant="text"
-                            style={{ textTransform: "none" }}
-                            color="primary"
-                          >
-                            Forgot Password?
-                          </Button>
+                        <br />
+                        <div className="passwordLogin" align="center">
+                          <div className="pass2">
+                            <FormControl variant="outlined" fullWidth required>
+                              <InputLabel htmlFor="outlined-adornment-password">
+                                Password
+                              </InputLabel>
+                              <OutlinedInput
+                                id="outlined-adornment-password"
+                                fullwidth
+                                type={showPassword ? "text" : "password"}
+                                size="small"
+                                error={passwordNotValid}
+                                helperText={
+                                  passwordNotValid
+                                    ? "This field cannot be empty"
+                                    : ""
+                                }
+                                onChange={(event) => {
+                                  setPassword(event.target.value);
+                                  if (passwordNotValid) {
+                                    setPasswordNotValid(false);
+                                  }
+                                }}
+                                endAdornment={
+                                  <InputAdornment position="start">
+                                    <IconButton
+                                      size="small"
+                                      aria-label="toggle password visibility"
+                                      onClick={handleClickShowPassword}
+                                      onMouseDown={handleMouseDownPassword}
+                                      edge="end"
+                                    >
+                                      {showPassword ? (
+                                        <VisibilityOff />
+                                      ) : (
+                                        <Visibility />
+                                      )}
+                                    </IconButton>
+                                  </InputAdornment>
+                                }
+                                label="Password"
+                                name="passwordConfirmation"
+                                color="primary"
+                                placeholder="Enter your password"
+                              />
+                            </FormControl>
+                          </div>
                         </div>
-                      </div>
-                      <div className="signInSignUp">
-                        <div className="signIn">
-                          <Button
-                            variant="text"
-                            id="link-btn"
-                            component={Link}
-                            to="/"
-                            style={{ textTransform: "none" }}
-                            color="primary"
-                          >
-                            <b>Create Account</b>
-                          </Button>
+                        <div className="messageLogin" align="center">
+                          <span>
+                            Use 8 or more characters which consist of letters, numbers
+                            & symbols
+                          </span>
                         </div>
-                        <div className="create">
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                            onClick={handleSubmit}
-                          >
-                            <b>Sign In</b>
-                          </Button>
+                        <br />
+                        <div className="passwordAndForgotPassword">
+                          <div className="showPasswordLogin" align="left">
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  value="allowExtraEmails"
+                                  color="primary"
+                                  onClick={handleClickShowPasswords}
+                                  onMouseDown={handleMouseDownPassword}
+                                />
+                              }
+                              label={
+                                <span style={{ fontSize: "0.75rem" }}>
+                                  Show Password
+                                </span>
+                              }
+                            />
+                          </div>
+                          <div className="forgotPassword" align="right">
+                            <Button
+                              variant="text"
+                              style={{ textTransform: "none" }}
+                              color="primary"
+                              size="small"
+                              component={Link}
+                              to="/forgot"
+                            >
+                              Forgot Password?
+                            </Button>
+                          </div>
+                        </div>
+                        <div className="signInSignUp">
+                          <div className="signIn">
+                            <Button
+                              variant="text"
+                              id="link-btn"
+                              component={Link}
+                              to="/"
+                              style={{ textTransform: "none" }}
+                              color="primary"
+                            >
+                              <b>Create Account</b>
+                            </Button>
+                          </div>
+                          <div className="create">
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              color="primary"
+                              onClick={handleSubmit}
+                            >
+                              <b>Sign In</b>
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
