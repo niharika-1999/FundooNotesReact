@@ -24,15 +24,17 @@ export default function Login() {
       setShowPassword(!showPassword);
     };
     const handleSubmit = (event) => {
-      event.preventDefault();
-      setEmailNotValid(false);
-      setPasswordNotValid(false);
-      if (email === "") setEmailNotValid(true);
-      if (password === "") setPasswordNotValid(true);
-      userPost("users/login", {
-        email: email,
-        password: password,
-      });
+        event.preventDefault();
+        if (email === "") setEmailNotValid(true);
+        if (password === "") setPasswordNotValid(true);
+        else {
+          userPost("users/login", {
+            email: email,
+            password: password,
+          });
+          alert("Successfully Logged In");
+          window.location = "/dashboard";
+        }
     };
     const handleClickShowPasswords = () => {
       setShowPassword(!showPassword);

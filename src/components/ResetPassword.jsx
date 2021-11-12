@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { Grid,TextField,Typography,Button,FormControlLabel,Checkbox,} from "@mui/material";
 import "../css/resetPasswordStyle.css";
 import { passwordValidation } from "./formValidation";
@@ -11,6 +11,7 @@ export default function ResetPassword() {
   const [passwordNotValid, setPasswordNotValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordConfirmationNotValid, setPasswordConfirmationNotValid] =React.useState(false);
+  const {token}=useParams;
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -25,8 +26,9 @@ export default function ResetPassword() {
       setPasswordConfirmationNotValid(true);
       alert("Password Mismatch.");
     } else {
-      userPost("users/reset", {
+      userPost(`users/${window.location.pathname}`, {
         password: password,
+        token:token
       });
       alert("Reset Password Successful.");
     }

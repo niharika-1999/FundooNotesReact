@@ -3,6 +3,7 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import AppBar from './components/AppBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/forgot" exact component={ForgotPassword} />
           <Route path="/reset/:token" exact component={ResetPassword} />
+          <Route path="/dashboard" exact component={AppBar} />
       </Router>
     </div>
   );
