@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/style.css'
 import createAccounts from "../assets/createAccounts.png"
-import {firstNameValidation,lastNameValidation, emailValidation, passwordValidation} from "./formValidation";
+import {firstNameValidation,lastNameValidation, emailValidation, passwordValidation} from "../config/formValidation";
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link } from "react-router-dom";
-import userPost from "../service/registrationAPI";
+import userPost from "../service/userService";
 
 export default function Registration() {  
 

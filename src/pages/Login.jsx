@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import { Link } from "react-router-dom";
-import userPost from "../service/registrationAPI";
+import userPost from "../service/userService";
 
 export default function Login() {
     const [email, setEmail] = React.useState("");

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { emailValidation } from "./formValidation";
+import { emailValidation } from "../config/formValidation";
 import { Grid, TextField, Typography, Button } from "@mui/material";
 import "../css/forgotPasswordStyle.css";
-import userPost from "../service/registrationAPI";
+import userPost from "../service/userService";
 
 export default function ForgetPassword() {
   const [email, setEmail] = useState("");

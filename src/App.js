@@ -1,9 +1,9 @@
 import './App.css';
-import Registration from './components/Registration';
-import Login from './components/Login';
-import ForgotPassword from './components/ForgotPassword';
-import ResetPassword from './components/ResetPassword';
-import AppBar from './components/AppBar';
+import Registration from './pages/Registration';
+import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import Dashboard from "./pages/Dashboard";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -15,7 +15,7 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/forgot" exact component={ForgotPassword} />
           <Route path="/reset/:token" exact component={ResetPassword} />
-          <Route path="/dashboard" exact component={AppBar} />
+          <Route path="/dashboard" exact component={Dashboard} />
       </Router>
     </div>
   );
