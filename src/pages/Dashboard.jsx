@@ -1,45 +1,55 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Box, CssBaseline } from "@mui/material";
+import { Box } from "@mui/material";
 import Appbar from "../components/Appbar";
 import MiniDrawer from "../components/Drawer";
 import Notes from "../components/Notes";
-import notes from "../service/notesService"
+import { notes } from "../service/notesService";
+import { useDispatch } from "react-redux";
+import { setNotes } from "../redux/Actions/notesAction";
+import AddNotes from '../components/AddNotes';
 
 export default function Dashboard() {
-    const [open, setOpen] = useState(false);
-    const [note, setNote] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [title,setTitle] = useState('FundooNotes')
 
-    useEffect(() => {
-      fetchitem();
-    }, []);
+  const dispatch = useDispatch();
 
-    const fetchitem = () => {
-      notes()
-        .then((res) => {
-          setNote(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+  const handleTitle = (title) => {
+    setTitle(title);
+  }
 
-    const handleDrawer = () => {
-      setOpen(!open);
-    };
- 
-    const handleDrawerOpen = () =>  {
-      setOpen(true);
-    };
+  useEffect(() => {
+    fetchitem();
+  }, []);
 
-    return (
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <Appbar handleDrawer={handleDrawer} />
-        <MiniDrawer open={open}  />
-        <Box sx={{ flexGrow: 1, p: 3}}>
-          <Notes notes={note} />
-        </Box>
+  const fetchitem = () => {
+    
+    notes()
+      .then((res) => {
+        dispatch(setNotes(res.data));
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleDrawer = () => {
+      setOpen((previousState) => {
+        return !previousState;
+      });
+  };
+
+  return (
+    <div>
+      <Appbar handleDrawer={handleDrawer} title={title}/>
+      <MiniDrawer open={open}  handleTitle={handleTitle} />
+      <AddNotes />
+      <Box sx={{ flexGrow: 1, p: 10}}>
+        <Notes />
       </Box>
-    );
+    </div>
+  );
 }
+

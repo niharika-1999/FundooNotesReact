@@ -25,3 +25,103 @@
     background-color: #fff;
     border-color: #e0e0e0; 
 }
+
+.add-notes {
+    color: #202124;
+    direction: ltr;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 15px;
+  }
+  .note-cards {
+    color: #202124;
+    direction: ltr;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 15px;
+    background-color: transparent;
+    margin: 0 auto;
+    pointer-events: none;
+    width: 700px;
+    padding: 20px;
+  }
+  
+  .create-note {
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,Segoe UI, Arial, sans-serif;
+    font-size: 16px;
+    color: #202124;
+    line-height: 1;
+    box-sizing: inherit;
+    position: relative;
+    width: 50%;
+    height:30px;
+    min-height: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    z-index: 5;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 4px 2px rgba(60, 64, 67, 0.15);
+  }
+  
+  .backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+  }
+  .create-form {
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,Segoe UI, Arial, sans-serif;
+    font-size: 16px;
+    color: #202124;
+    line-height: 1.5;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    display: block;
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background-color: transparent;
+  }
+  input {
+    font-family: Product Sans, system, -apple-system, BlinkMacSystemFont, Roboto,Helvetica Neue, Segoe UI, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,Segoe UI, Arial, sans-serif;
+    resize: none;
+    line-height: 1;
+    min-height: 5em;
+    max-height: 50vh;
+    width: 100%;
+  }
+  
+  .iconsAndAddNote{
+    display: inline-block;
+    display: flex;
+  }
+  .signIn {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #202124;
+    margin-top: 48px;
+    margin-right: auto;
+    padding: 6px 0;
+  }
+  
+  .create {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 12px;
+  }
