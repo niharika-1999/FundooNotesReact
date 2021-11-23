@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
-import Appbar from "../components/Appbar";
+import AppBar from "../components/AppBar";
 import MiniDrawer from "../components/Drawer";
 import Notes from "../components/Notes";
 import { notes } from "../service/notesService";
@@ -43,7 +43,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Appbar handleDrawer={handleDrawer} title={title}/>
+      <AppBar handleDrawer={handleDrawer} title={title}/>
       <MiniDrawer open={open}  handleTitle={handleTitle} />
       <AddNotes />
       <Box sx={{ flexGrow: 1 , p:10}}>
