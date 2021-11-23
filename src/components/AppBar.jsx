@@ -11,15 +11,16 @@ import Typography from "@mui/material/Typography";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import MenuIcon from "@mui/icons-material/Menu";
 import Badge from "@mui/material/Badge";
-import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
+import GridViewIcon from "@mui/icons-material/GridView";
 import Box from "@mui/material/Box";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import InputBase from "@mui/material/InputBase";
 import Toolbar from "@mui/material/Toolbar";
 import SplitscreenOutlinedIcon from "@mui/icons-material/SplitscreenOutlined";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setSearchedNotes } from "../redux/Actions/notesAction";
+import { setSearchedNotes , viewList } from "../redux/Actions/notesAction";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -83,6 +84,7 @@ const AppBar = styled(MuiAppBar, {
 export default function Appbar( {handleDrawer, title} ) {
   const [search, setSearch] = useState("");
   const myNotes = useSelector((state) => state.allNotes.notes);
+  const list = useSelector((state) => state.allNotes.viewList);
   const dispatch = useDispatch();
 
   const handleSearch = (searchValue) => {
@@ -99,6 +101,14 @@ export default function Appbar( {handleDrawer, title} ) {
       )
     );
   }, [search, myNotes]);
+
+  const handleView = () => {
+    dispatch(viewList());
+  };
+
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
   
   return (
       <AppBar position="fixed" style={{ background: "#ffffff" }}>
@@ -137,19 +147,29 @@ export default function Appbar( {handleDrawer, title} ) {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton size="large" color="inherit">
               <Badge>
-                <RefreshIcon sx={{ color: "#5f6368" }} />
+                <RefreshIcon sx={{ color: "#5f6368" }} onClick={refreshPage} />
               </Badge>
             </IconButton>
             <IconButton size="large" color="inherit">
-              <Badge>
-                <SplitscreenOutlinedIcon sx={{ color: "#5f6368" }} />
-              </Badge>
-            </IconButton>
-            <IconButton size="large" color="inherit">
-              <Badge>
-                <SettingsSharpIcon sx={{ color: "#5f6368" }} />
-              </Badge>
-            </IconButton>
+            {!list ? (
+              <SplitscreenOutlinedIcon
+                fontSize="medium"
+                onClick={handleView}
+                style={{ marginLeft: "5px" }}
+              />
+            ) : (
+              <GridViewIcon
+                fontSize="medium"
+                onClick={handleView}
+                style={{ marginLeft: "5px" }}
+              />
+            )}
+          </IconButton>
+          <IconButton size="large" color="inherit">
+            <Badge>
+              <SettingsOutlinedIcon sx={{ color: "#5f6368" }} />
+            </Badge>
+          </IconButton>
             <IconButton
               size="large"
               edge="end"

@@ -46,7 +46,7 @@ export default function Dashboard() {
       <Appbar handleDrawer={handleDrawer} title={title}/>
       <MiniDrawer open={open}  handleTitle={handleTitle} />
       <AddNotes />
-      <Box sx={{ flexGrow: 1, p: 10}}>
+      <Box sx={{ flexGrow: 1 , p:10}}>
         <Notes />
       </Box>
     </div>

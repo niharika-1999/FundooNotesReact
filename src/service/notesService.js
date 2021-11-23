@@ -1,8 +1,8 @@
-import { getNote } from "../helper/axios";
+import { getNote,createNotes,updateNotes } from "../helper/axios";
 import { getToken } from "../utils/userTokens"
 
 const token = getToken("token");
-const url = "http://localhost:5000/notes";
+let url = "http://localhost:5000/notes";
 
 const notes = () => {
     console.log(token);
@@ -15,12 +15,17 @@ const notes = () => {
     });
 }
 
-const createNotes = (data) => {
-    return createNotes(url,data,`bearer ${token}`).then((response)=>{
-        console.log(response)
-    }).catch((err)=>{
-        console.log(err)
-    }); 
+const createNewNotes = (data) => {
+    return createNotes(url,data,`bearer ${token}`);
 }
 
-export {notes, createNotes};
+const update = (data,id) => {
+    url=`http://localhost:5000/notes/${id}`
+    return updateNotes(url, data, `bearer ${token}`).then((response) => {
+        return response;
+    }).catch((err) => {
+        throw err;
+    })
+}
+
+export {notes, createNewNotes,update};
