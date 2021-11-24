@@ -45,19 +45,12 @@ export default function Dashboard() {
   return (
     <div>
       <AppBar handleDrawer={handleDrawer} title={title}/>
-<<<<<<< HEAD
       <MiniDrawer open={open}  handleClick={handleClick} path={path} setPath={setPath}/>
       {(path==="trash") ? <DeleteNote /> :
       <div> 
        <AddNotes />
       <Box component="main" sx={{ flexGrow: 1}}>
           <Notes value={false}/>
-=======
-      <MiniDrawer open={open}  handleTitle={handleTitle} />
-      <AddNotes />
-      <Box sx={{ flexGrow: 1 , p:10}}>
-        <Notes />
->>>>>>> c64ac2464d3f98423dc778ca2aae4a535054177f
       </Box>
     </div>
   }
