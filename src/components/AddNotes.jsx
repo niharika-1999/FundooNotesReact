@@ -67,36 +67,40 @@ export default function AddNotes() {
             placeholder="Take a note..."
           />
            <div className="iconsAndAddNote">
-            <div className="signIn" align="left">
-              {titleFieldVisible}
+            <div className="icons">
+              <div className="signInNew" align="left">
+                {titleFieldVisible && <NotesIcons />}
+              </div>
             </div>
-            <div className="submit" align="right">
-              {titleFieldVisible && (
-                <Button
-                  variant="text"
-                  id="submitButton"
-                  type="submit"
-                  onClick={handleSubmit}
-                  style={{ textTransform: "none" }}
-                  color="inherit"
-                >
-                  <b>Submit</b>
-                </Button>
-              )}
-            </div>
-            <div className="create" align="right">
-              {titleFieldVisible && (
-                <Button
-                  variant="text"
-                  id="submitButton"
-                  type="submit"
-                  onClick={hideTitleField}
-                  style={{ textTransform: "none" }}
-                  color="inherit"
-                >
-                  <b>Close</b>
-                </Button>
-              )}
+            <div className="submitAndClose">
+              <div className="submit" align="left">
+                {titleFieldVisible && (
+                  <Button
+                    variant="text"
+                    id="submitButton"
+                    type="submit"
+                    onClick={handleSubmit}
+                    style={{ textTransform: "none", marginLeft: 250 }}
+                    color="inherit"
+                  >
+                    <b>Submit</b>
+                  </Button>
+                )}
+              </div>
+              <div className="createNew" align="right">
+                {titleFieldVisible && (
+                  <Button
+                    variant="text"
+                    id="submitButton"
+                    type="submit"
+                    onClick={hideTitleField}
+                    style={{ textTransform: "none" }}
+                    color="inherit"
+                  >
+                    <b>Close</b>
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         </form>

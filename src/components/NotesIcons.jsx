@@ -7,7 +7,7 @@ import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import InsertPhotoOutlinedIcon from "@mui/icons-material/InsertPhotoOutlined";
 
-export default function NotesFunctionIcons() {
+export default function NotesIcons() {
     return (
         <div>
           <Grid>
