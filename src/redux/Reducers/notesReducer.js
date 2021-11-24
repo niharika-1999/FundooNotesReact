@@ -20,7 +20,8 @@ const initialState = {
           return {...state,viewList:!state.viewList}
       case ActionTypes.UPDATE_NOTE:
         let newNote = [...state.notes];
-        console.log(payload)
+        console.log(newNote);
+        console.log(payload);
         let index=state.notes.findIndex(note=>note._id===payload.data._id)
         newNote[index]=payload.data
         return {...state,notes:newNote}    

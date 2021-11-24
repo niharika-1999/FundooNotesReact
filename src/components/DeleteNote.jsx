@@ -9,7 +9,7 @@ import { updateNote,deleteNote} from "../redux/Actions/notesAction";
 import {update, Delete} from "../service/notesService";
 import "../css/delete.css";
 
-export default function DeletedNotes() {
+export default function DeleteNotes() {
     const dispatch = useDispatch();
     const viewList = useSelector((state) => state.allNotes.viewList);
   
@@ -36,6 +36,7 @@ export default function DeletedNotes() {
           console.log(err);
         });
     };
+
     const myNotes = useSelector((state) => state.allNotes.searchedNotes);
     console.log(myNotes);
     const emptyTrash = () => {
@@ -46,71 +47,71 @@ export default function DeletedNotes() {
       });
     };
     return (
-      <div className="mainPage">
-        <div className="trash-text-out">
-          <div className="trash-text">
-            <span>Notes in trash are deleted after 7 days.</span>
-            <br />
-            <Button
-              variant="text"
-              onClick={() => {
-                emptyTrash();
-              }}
-            >
-              Empty trash
-            </Button>
+        <div className="mainPage">
+          <div className="trash-text-out">
+            <div className="trash-text">
+              <span>Notes in trash are deleted after 7 days.</span>
+              <br />
+              <Button
+                variant="text"
+                onClick={() => {
+                  emptyTrash();
+                }}
+              >
+                Empty trash
+              </Button>
+            </div>
           </div>
-        </div>
-        <Box sx={{ mx: "5px", transform: "scale(0.8)" }}>
-        <Grid container spacing={3} justifyContent={viewList ? "center" : null}>
-          {myNotes.map((item) => {
-            if (item.isTrash === true) {
-              return (
-                <Grid
-                  position="relative"
-                  item
-                  xs={12}
-                  md={viewList ? 8 : 3}
-                  key={item._id}
-                >
-                  <Card
-                    variant="outlined"
-                    justifyContent={viewList ? "center" : null}
-                    sx={{ width: 250, height: 130 }}
-                    className="notesCardDelete"
+          <Box sx={{ mx: "5px", transform: "scale(0.8)" }}>
+          <Grid container spacing={3} justifyContent={viewList ? "center" : null}>
+            {myNotes.map((item) => {
+              if (item.isTrash === true) {
+                return (
+                  <Grid
+                    position="relative"
+                    item
+                    xs={12}
+                    md={viewList ? 8 : 3}
+                    key={item._id}
                   >
-                    <CardContent>
-                      <Typography variant="h5">{item.title}</Typography>
-                      <br />
-                      <Typography sx={{ mb: 1.2 }} color="text.secondary">
-                        {item.content}
-                      </Typography>
-  
-                      <DeleteForeverIcon
-                        fontSize="small"
-                        color="default" 
-                        sx={{ padding: "9px" }}
-                        onClick={() => {
-                          console.log(item);
-                          handleDelete(item);
-                        }}
-                      />
-                      <RestoreFromTrashIcon
-                        fontSize="small"
-                        color="default" 
-                        sx={{ padding: "9px" }}
-                        onClick={() => {
-                          handleRestore(item);
-                        }}
-                      />
-                    </CardContent>
-                  </Card>
-                </Grid>
-              );
-            }
-          })}{" "}
-        </Grid>
-        </Box>
-      </div>
-    );
-  }
+                    <Card
+                      variant="outlined"
+                      justifyContent={viewList ? "center" : null}
+                      sx={{ width: 280, height: 180 }}
+                      className="notesCardDelete"
+                    >
+                      <CardContent>
+                        <Typography variant="h5">{item.title}</Typography>
+                        <br />
+                        <Typography sx={{ mb: 1.2 }} color="text.secondary">
+                          {item.content}
+                        </Typography>
+    
+                        <DeleteForeverIcon
+                          fontSize="small"
+                          color="default" 
+                          sx={{ padding: "9px" }}
+                          onClick={() => {
+                            console.log(item);
+                            handleDelete(item);
+                          }}
+                        />
+                        <RestoreFromTrashIcon
+                          fontSize="small"
+                          color="default" 
+                          sx={{ padding: "9px" }}
+                          onClick={() => {
+                            handleRestore(item);
+                          }}
+                        />
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                );
+              }
+            })}{" "}
+          </Grid>
+          </Box>
+        </div>
+      );
+    }

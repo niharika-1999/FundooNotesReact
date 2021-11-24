@@ -8,14 +8,14 @@ import ListItemText from "@mui/material/ListItemText";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
-import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
-import { useHistory } from "react-router-dom"
 
-
-const drawerWidth = 200;
+const drawerWidth = 220;
 const openedMixin = (theme) => ({
   width: drawerWidth,
+  top: "auto",
+  borderRight: "0px",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -24,6 +24,8 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
+  top: "auto",
+  borderRight: "0px",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -71,10 +73,7 @@ const ListItemsColour = styled(ListItem)`
       background-color: #f5cb90;
     }
     `;
-
-
 export default function MiniDrawer(props) {
-  let history = useHistory();
   const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -87,7 +86,7 @@ export default function MiniDrawer(props) {
     {
       text: 'Notes',
       icon: <LightbulbOutlinedIcon />,
-      path: '/dashboard'
+      path: 'notes'
     },
     {
       text: 'Remainders',
@@ -106,8 +105,8 @@ export default function MiniDrawer(props) {
     },
     {
       text: 'Trash',
-      icon: <DeleteIcon />,
-      path: "/trash"
+      icon: <DeleteOutlinedIcon />,
+      path: "trash"
     },
   ];
 
@@ -120,33 +119,27 @@ export default function MiniDrawer(props) {
         onMouseLeave={() => handleDrawerClose()}>
 
         <DrawerHeader />
-
-
-
         <List >
           {menuItems.map((item) => (
             <ListItemsColour
-
               button
 
               key={item.text}
 
               onClick={() => {
                 props.handleClick(item.text);
-                history.push(item.path)
+                props.setPath(item.path)
               }
               }
-
-
-            >
-              <ListItemIcon onClick={() => { props.handleClick(item.text); }} >{item.icon}</ListItemIcon>
+              >
+                <ListItemIcon onClick={() => { props.handleClick(item.text); }} >{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemsColour>
           ))}
         </List>
-
-
-      </Drawer>
+        </Drawer>
     </Box>
   )
 }
+
+              

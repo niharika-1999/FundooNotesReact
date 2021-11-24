@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
-import AppBar from "../components/AppBar";
+import Appbar from "../components/AppBar";
 import MiniDrawer from "../components/Drawer";
 import Notes from "../components/Notes";
 import { notes } from "../service/notesService";
@@ -44,7 +44,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <AppBar handleDrawer={handleDrawer} title={title}/>
+      <Appbar handleDrawer={handleDrawer} title={title}/>
       <MiniDrawer open={open}  handleClick={handleClick} path={path} setPath={setPath}/>
       {(path==="trash") ? <DeleteNote /> :
       <div> 

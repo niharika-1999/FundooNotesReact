@@ -5,7 +5,6 @@ import { Grid, Typography , Button} from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import "../css/notes.css";
-import NotesIcons from "../components/NotesIcons";
 import { updateNote } from '../redux/Actions/notesAction'; 
 import { update } from '../service/notesService';
 import { useDispatch } from 'react-redux';
@@ -68,11 +67,17 @@ return myNotes.length > 0 ? (
       {myNotes.map((item, singleNote) => {
         if (item.isTrash === false) {
         return (
-          <Grid position="relative" item xs={12} md={viewList ? 8 : 3} key={item._id} >
+          <Grid
+            position="relative"
+            item
+            xs={12}
+            md={viewList ? 8 : 3}
+            key={item._id}
+          >
             <Card
               variant="outlined"
               justifyContent={viewList ? "center" : null}
-              sx={{ height: 150 }}
+              sx={{height: 180 }}
               className="notesCard"
               key={singleNote}
               onMouseOver={() => {
@@ -91,11 +96,18 @@ return myNotes.length > 0 ? (
                 <Typography sx={{ mb: 1.2 }} color="text.secondary">
                   {item.content}
                 </Typography>
-                {mouseHover[singleNote] ? 
-                (<NotesIcons /> && <DeleteIcon onClick={()=>{handleDelete(item)}}/>) 
-                : null}
+                {mouseHover[singleNote] ? (
+                  <div className="noteIcons">
+                    <div align="right">
+                      <DeleteIcon
+                        onClick={() => {
+                          handleDelete(item);
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : null}
               </CardContent>
-              
             </Card>
           </Grid>
         );
@@ -126,14 +138,6 @@ return myNotes.length > 0 ? (
           />
         </DialogContent>
         <DialogActions>
-          <Button variant="text"
-                id="submitButton"
-                type="submit"
-                onClick={handleClose}
-                style={{ textTransform: "none" }}
-                color="inherit"> 
-                <b>Close</b> 
-          </Button>
           <Button  variant="text"
                 id="submitButton"
                 type="submit"
