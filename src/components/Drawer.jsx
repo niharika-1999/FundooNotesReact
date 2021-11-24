@@ -1,15 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { List, ListItem } from "@mui/material";
+import { List, ListItem, Box } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import { useHistory } from "react-router-dom"
 
 
 const drawerWidth = 200;
@@ -34,6 +35,14 @@ const closedMixin = (theme) => ({
   },
 });
 
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  ...theme.mixins.toolbar,
+}));
+
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -51,17 +60,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer( {handleTitle} )  {
-    const [open, setOpen] = useState(false);
-    const handleDrawerOpen = () =>  {
-      setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
-
-    const ListItemsColour = styled(ListItem)`
+const ListItemsColour = styled(ListItem)`
     &:hover {
       background-color: #e6e8e6;
     }
@@ -73,45 +72,81 @@ export default function MiniDrawer( {handleTitle} )  {
     }
     `;
 
+
+export default function MiniDrawer(props) {
+  let history = useHistory();
+  const [open, setOpen] = useState(false);
+  const handleDrawerOpen = () => {
+    setOpen(true)
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const menuItems = [
+    {
+      text: 'Notes',
+      icon: <LightbulbOutlinedIcon />,
+      path: '/dashboard'
+    },
+    {
+      text: 'Remainders',
+      icon: < NotificationsNoneOutlinedIcon />,
+      path: '/create'
+    },
+    {
+      text: 'Edit labels',
+      icon: <CreateOutlinedIcon />,
+      path: '/create'
+    },
+    {
+      text: 'Archieve',
+      icon: < ArchiveOutlinedIcon />,
+      path: '/login'
+    },
+    {
+      text: 'Trash',
+      icon: <DeleteIcon />,
+      path: "/trash"
+    },
+  ];
+
   return (
-    <Drawer
-      variant="permanent"
-      open={open}
-      onMouseOver={handleDrawerOpen}
-      onMouseLeave={handleDrawerClose}
-    >
-      <List style={{ marginTop: "65px", color: "#202124" }}>
-      <ListItemsColour button onClick={() => handleTitle("FundooNotes")}>
-          <ListItemIcon>
-            <LightbulbOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Notes"/>
-        </ListItemsColour>
-        <ListItemsColour button onClick={() => handleTitle("Reminders")}>
-          <ListItemIcon>
-            <NotificationsNoneOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Reminders" />
-        </ListItemsColour>
-        <ListItemsColour button onClick={() => handleTitle("Edit labels")}>
-          <ListItemIcon>
-            <EditOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Edit labels" />
-        </ListItemsColour>
-        <ListItemsColour button onClick={() => handleTitle("Archive")}>
-          <ListItemIcon>
-            <ArchiveOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Archive" />
-        </ListItemsColour>
-        <ListItemsColour button onClick={() => handleTitle("Bin")}>
-          <ListItemIcon>
-            <DeleteOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Bin" />
-        </ListItemsColour>
-      </List>
-    </Drawer>
-  );
+    <Box sx={
+      { display: 'flex' }
+    } >
+
+      <Drawer variant="permanent" open={open} onMouseOver={() => handleDrawerOpen()}
+        onMouseLeave={() => handleDrawerClose()}>
+
+        <DrawerHeader />
+
+
+
+        <List >
+          {menuItems.map((item) => (
+            <ListItemsColour
+
+              button
+
+              key={item.text}
+
+              onClick={() => {
+                props.handleClick(item.text);
+                history.push(item.path)
+              }
+              }
+
+
+            >
+              <ListItemIcon onClick={() => { props.handleClick(item.text); }} >{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItemsColour>
+          ))}
+        </List>
+
+
+      </Drawer>
+    </Box>
+  )
 }

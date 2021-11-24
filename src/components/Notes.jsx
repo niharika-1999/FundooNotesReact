@@ -9,12 +9,14 @@ import NotesIcons from "../components/NotesIcons";
 import { updateNote } from '../redux/Actions/notesAction'; 
 import { update } from '../service/notesService';
 import { useDispatch } from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
-const Notes = () => {
+const Notes = ({value}) => {
   const myNotes = useSelector((state) => state.allNotes.searchedNotes);
+  const viewList = useSelector((state) => state.allNotes.viewList);
   const [mouseHover, setMouseHover] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState("");
@@ -24,7 +26,8 @@ const Notes = () => {
 
   const data = {
     title: title,
-    content: content
+    content: content,
+    isTrash:false
   };
 
   const handleClickOpen = (item) => {
@@ -46,74 +49,107 @@ const Notes = () => {
     handleClose();
   };
 
-  return myNotes.length > 0 ? (
-    <Box sx={{ mx: '2px', transform: 'scale(0.8)' }}>
-      <Grid container spacing={4}>
-        {myNotes.map((item, singleNote) => {
-          return (
-            <Grid item xs={12} sm={6} md={3} key={item._id}>
-              <Card variant="outlined" sx={{ width: 250, height: 170 }} key= {singleNote} onMouseOver={() => {setMouseHover({[singleNote]:true});}}onClick={() => {
-                  handleClickOpen(item);
-                }} onMouseLeave={() => {setMouseHover({[singleNote]:false}) ; }}>
-                <CardContent>
-                  <Typography variant="h5">{item.title}</Typography>
-                  <br />
-                  <Typography sx={{ mb: 1.2 }} color="text.secondary">
-                    {item.content}
-                  </Typography>
-                </CardContent>
-                {mouseHover[singleNote] ? <NotesIcons /> : null}
-              </Card>
-            </Grid>
-          );
-        })}
-      </Grid>
-      <div>
-        <Dialog
-          fullWidth maxWidth="sm"
-          open={open}
-          onClose={handleClose}
-        >
-          <DialogContent>
-            <input
-              className="title"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              name="title"
-              placeholder="Title"
-            />
-            <textarea
-              className="text-area"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              name="content"
-              placeholder="Take a note..."
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button variant="text"
-                  id="submitButton"
-                  type="submit"
-                  onClick={handleClose}
-                  style={{ textTransform: "none" }}
-                  color="inherit">
-                  <b>Close</b>
-            </Button>
-            <Button  variant="text"
-                  id="submitButton"
-                  type="submit"
-                  onClick={handleUpdate}
-                  style={{ textTransform: "none" }}
-                  color="inherit">
-                  <b> Submit </b>
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    </Box>
-  ) : (
-    <span>No matching results.</span>
-  );
+  const handleDelete=(item)=>{
+    const dataDelete = {
+        title: item.title,
+        content: item.content,
+        isTrash:true
+    };
+
+    update(dataDelete, item._id).then((res) => {
+        dispatch(updateNote(res))
+    }).catch((err) => console.log(err.message));
+}
+
+return myNotes.length > 0 ? (
+  <div className="mainNew">
+  <Box sx={{ mx: "5px", transform: "scale(0.8)" }}>
+    <Grid container spacing={3} justifyContent={viewList ? "center" : null}>
+      {myNotes.map((item, singleNote) => {
+        if (item.isTrash === false) {
+        return (
+          <Grid position="relative" item xs={12} md={viewList ? 8 : 3} key={item._id} >
+            <Card
+              variant="outlined"
+              justifyContent={viewList ? "center" : null}
+              sx={{ height: 150 }}
+              className="notesCard"
+              key={singleNote}
+              onMouseOver={() => {
+                setMouseHover({ [singleNote]: true });
+              }}
+              onMouseLeave={() => {
+                setMouseHover({ [singleNote]: false });
+              }}
+              onClick={() => {
+                handleClickOpen(item);
+              }}
+            >
+              <CardContent>
+                <Typography variant="h5">{item.title}</Typography>
+                <br />
+                <Typography sx={{ mb: 1.2 }} color="text.secondary">
+                  {item.content}
+                </Typography>
+                {mouseHover[singleNote] ? 
+                (<NotesIcons /> && <DeleteIcon onClick={()=>{handleDelete(item)}}/>) 
+                : null}
+              </CardContent>
+              
+            </Card>
+          </Grid>
+        );
+      }
+      })}
+    </Grid>
+    <div>
+      <Dialog
+        fullWidth maxWidth="sm"
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogContent>
+          <input
+            className="title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            name="title"
+            placeholder="Title"
+          />
+          <textarea
+            className="text-area"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            name="content"
+            placeholder="Take a note..."
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="text"
+                id="submitButton"
+                type="submit"
+                onClick={handleClose}
+                style={{ textTransform: "none" }}
+                color="inherit"> 
+                <b>Close</b> 
+          </Button>
+          <Button  variant="text"
+                id="submitButton"
+                type="submit"
+                onClick={handleUpdate}
+                style={{ textTransform: "none" }}
+                color="inherit">
+                <b> Submit </b> 
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  </Box>
+  </div>
+) : (
+  <span>No matching results.</span>
+);
 };
+
 export default Notes;

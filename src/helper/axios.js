@@ -53,4 +53,14 @@ const updateNotes = (url, data, token) => {
   }))
 }
 
-export {userConnect, getNote,createNotes,updateNotes} ;
+const deleteNotes=(url,token)=>{
+  return(axios({
+      method:"delete",
+      url:url,
+      headers: {
+          Authorization: token
+      }
+  }))
+}
+
+export {userConnect, getNote,createNotes,updateNotes,deleteNotes} 

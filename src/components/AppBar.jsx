@@ -110,80 +110,80 @@ export default function Appbar( {handleDrawer, title} ) {
     window.location.reload();
  }
   
-  return (
-      <AppBar position="fixed" style={{ background: "#ffffff" }}>
-        <Toolbar style={{ color: "rgba(0, 0, 0, 0.54)" }}>
-          <IconButton
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawer}
-            color="inherit"
-            sx={{
-              marginRight: "15px",
-            }}
-          >
-            <MenuIcon sx={{ color: "#5f6368" }} />
-          </IconButton>
-          <Avatar alt="FundooNotes" src={Logo} variant="square" />
-          <Typography
-            variant="h7"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginLeft: "5px" }}
-          >
-            <span className="mainLogoAppBar">{title}</span>
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search"
-              onChange={(event) => handleSearch(event.target.value)}
-              inputProps={{ "aria-label": "search" }}
+ return (
+  <AppBar position="fixed" style={{ background: "#ffffff", borderBottom:"1px solid #e5e8e9", borderTop:"1px solid #e5e8e9" }}>
+    <Toolbar style={{ color: "rgba(0, 0, 0, 0.54)" }}>
+      <IconButton
+        aria-label="open drawer"
+        edge="start"
+        color="inherit"
+        onClick={handleDrawer}
+        sx={{
+          marginRight: "15px",
+        }}
+      >
+        <MenuIcon sx={{ color: "#5f6368" }} onClick={handleDrawer}/>
+      </IconButton>
+      <Avatar alt="FundooNotes" src={Logo} variant="square" />
+      <Typography
+        variant="h7"
+        noWrap
+        component="div"
+        sx={{ display: { xs: "none", sm: "block" }, marginLeft: "5px" }}
+      >
+        <span className="mainLogoAppBar">{title}</span>
+      </Typography>
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Search"
+          onChange={(event) => handleSearch(event.target.value)}
+          inputProps={{ "aria-label": "search" }}
+        />
+      </Search>
+      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <IconButton size="large" color="inherit">
+          <Badge>
+            <RefreshIcon sx={{ color: "#5f6368" }} onClick={refreshPage} />
+          </Badge>
+        </IconButton>
+        <IconButton size="large" color="inherit">
+          {!list ? (
+            <SplitscreenOutlinedIcon
+              fontSize="medium"
+              onClick={handleView}
+              style={{ marginLeft: "5px" }}
             />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" color="inherit">
-              <Badge>
-                <RefreshIcon sx={{ color: "#5f6368" }} onClick={refreshPage} />
-              </Badge>
-            </IconButton>
-            <IconButton size="large" color="inherit">
-            {!list ? (
-              <SplitscreenOutlinedIcon
-                fontSize="medium"
-                onClick={handleView}
-                style={{ marginLeft: "5px" }}
-              />
-            ) : (
-              <GridViewIcon
-                fontSize="medium"
-                onClick={handleView}
-                style={{ marginLeft: "5px" }}
-              />
-            )}
-          </IconButton>
-          <IconButton size="large" color="inherit">
-            <Badge>
-              <SettingsOutlinedIcon sx={{ color: "#5f6368" }} />
-            </Badge>
-          </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-              sx={{
-                marginLeft: "25px",
-              }}
-            >
-              <AccountCircle sx={{ fontSize: 40, color: "#5f6368" }} />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-  );
+          ) : (
+            <GridViewIcon
+              fontSize="medium"
+              onClick={handleView}
+              style={{ marginLeft: "5px" }}
+            />
+          )}
+        </IconButton>
+        <IconButton size="large" color="inherit">
+          <Badge>
+            <SettingsOutlinedIcon sx={{ color: "#5f6368" }} />
+          </Badge>
+        </IconButton>
+        <IconButton
+          size="large"
+          edge="end"
+          aria-label="account of current user"
+          aria-haspopup="true"
+          color="inherit"
+          sx={{
+            marginLeft: "25px",
+          }}
+        >
+          <AccountCircle sx={{ fontSize: 40, color: "#5f6368" }} />
+        </IconButton>
+      </Box>
+    </Toolbar>
+  </AppBar>
+);
 }

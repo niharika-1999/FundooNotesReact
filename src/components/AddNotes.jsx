@@ -66,7 +66,7 @@ export default function AddNotes() {
             name="content"
             placeholder="Take a note..."
           />
-          <div className="iconsAndAddNote">
+           <div className="iconsAndAddNote">
             <div className="signIn" align="left">
               {titleFieldVisible}
             </div>

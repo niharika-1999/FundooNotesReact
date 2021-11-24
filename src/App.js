@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Dashboard from "./pages/Dashboard";
+import Trash from "./pages/Trash";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/forgot" exact component={ForgotPassword} />
           <Route path="/reset/:token" exact component={ResetPassword} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/trash" exact component={Trash} />
       </Router>
     </div>
   );

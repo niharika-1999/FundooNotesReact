@@ -42,3 +42,10 @@ export const updateNote = (note) => {
       
     };
   };
+  
+export const deleteNote = (noteId) => {
+    return {
+      type: ActionTypes.DELETE_NOTE,
+      payload: noteId
+    };
+  };

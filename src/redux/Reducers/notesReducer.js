@@ -3,7 +3,6 @@ import { ActionTypes } from '../Constants/actionTypes';
 const initialState = {
     notes: [],
     searchedNotes: [],
-    title: "Notes",
     viewList:false
   };
   
@@ -25,7 +24,12 @@ const initialState = {
         let index=state.notes.findIndex(note=>note._id===payload.data._id)
         newNote[index]=payload.data
         return {...state,notes:newNote}    
+      case ActionTypes.DELETE_NOTE:
+            return {
+                ...state,
+                notes: state.notes.filter(item => item._id !== payload)
+            };
         default:
-         return state;
+            return state;
      }
      };
