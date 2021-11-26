@@ -72,6 +72,7 @@ const ListItemsColour = styled(ListItem)`
     &:focus {
       background-color: #f5cb90;
     }
+    border-radius: 0 25px 25px 0;
     `;
 export default function MiniDrawer(props) {
   const [open, setOpen] = useState(false);

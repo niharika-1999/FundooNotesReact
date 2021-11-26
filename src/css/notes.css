@@ -1,144 +1,152 @@
 .notesCard {
-    color: #202124;
-    direction: ltr;
-    font-family: "Roboto", arial, sans-serif;
-    font-size: 15px;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    transition-duration: 0.218s;
-    transition-property: background, border, opacity, box-shadow, transform;
-    transition-timing-function: ease-in;
-    background-color: #fff;
-    border-color: #e0e0e0;
-  }
-  
-  .add-notes {
-    color: #202124;
-    direction: ltr;
-    font-family: "Roboto", arial, sans-serif;
-    font-size: 15px;
-  }
-  .note-cards {
-    color: #202124;
-    direction: ltr;
-    font-family: "Roboto", arial, sans-serif;
-    font-size: 15px;
-    background-color: transparent;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .create-note {
-    -webkit-font-smoothing: antialiased;
-    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
-      Segoe UI, Arial, sans-serif;
-    font-size: 16px;
-    color: #202124;
-    line-height: 1.5;
-    box-sizing: inherit;
-    position: relative;
-    width: 70%;
-    max-width: 610px;
-    margin: 0 auto;
-    padding-left: 1.1em;
-    padding-top: 0.5rem;
-    background-color: #fff;
-    border-radius: 5px;
-    z-index: 10;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-      0 2px 6px 2px rgba(60, 64, 67, 0.15);
-  }
-  
-  .backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9;
-  }
-  .create-form {
-    -webkit-font-smoothing: antialiased;
-    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
-      Segoe UI, Arial, sans-serif;
-    font-size: 16px;
-    color: #202124;
-    line-height: 1.5;
-    box-sizing: inherit;
-  }
-  
-  input,
-  textarea {
-    width: 70%;
-    display: block;
-    border: 0;
-    outline: 0;
-    margin: 0;
-    padding-bottom: 0;
-    font-size: 16px;
-    background-color: transparent;
-  }
-  input {
-    font-family: Product Sans, system, -apple-system, BlinkMacSystemFont, Roboto,
-      Helvetica Neue, Segoe UI, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-  }
-  
-  input.title {
-    padding-bottom: 0.6em;
-    padding-top: 0.1rem;
-  }
-  
-  textarea {
-    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
-      Segoe UI, Arial, sans-serif;
-    resize: none;
-    max-height: 30vh;
-    width: 70%;
-  }
-  textarea.text-area {
-    font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
-      Segoe UI, Arial, sans-serif;
-    height: 30%;
-    padding: 0.5px 0px 0;
-  }
-  .iconsAndAddNote {
-    display: inline-block;
-    display: flex;
-    justify-content: space-between;
-  }
-  .signInNew {
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 12px;
-    color: #202124;
-  }
-  
-  .createNew {
-    padding-left: 2vh;
-  }
-  
-  .submitAndClose {
-    display: inline-block;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .noteIcons {
-    display: inline-block;
-    justify-content: space-between;
-  }
-  
-  .mainNew {
-    padding-left: 18vh;
-  }
-  
-  .css-17a4ieo-MuiPaper-root-MuiCard-root:hover, .css-17a4ieo-MuiPaper-root-MuiCard-root:focus {
-    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-    -webkit-box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-    border: solid transparent;
-    border-width: 1px 1px 1px 6px;
-  }
+  color: #202124;
+  direction: ltr;
+  font-family: "Roboto", arial, sans-serif;
+  font-size: 15px;
+  min-height: 11em;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  transition-duration: 0.218s;
+  transition-property: background, border, opacity, box-shadow, transform;
+  transition-timing-function: ease-in;
+  background-color: #fff;
+  border-color: #e0e0e0;
+}
+
+.add-notes {
+  color: #202124;
+  direction: ltr;
+  font-family: "Roboto", arial, sans-serif;
+  font-size: 15px;
+}
+.note-cards {
+  color: #202124;
+  direction: ltr;
+  font-family: "Roboto", arial, sans-serif;
+  font-size: 15px;
+  background-color: transparent;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.create-note {
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
+    Segoe UI, Arial, sans-serif;
+  font-size: 16px;
+  color: #202124;
+  line-height: 1.5;
+  box-sizing: inherit;
+  position: relative;
+  width: 70%;
+  max-width: 645px;
+  margin: 0 auto;
+  padding-left: 1.1em;
+  padding-top: 0.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 10;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+.create-form {
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
+    Segoe UI, Arial, sans-serif;
+  font-size: 16px;
+  color: #202124;
+  line-height: 1.5;
+  box-sizing: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  display: block;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding-bottom: 0;
+  font-size: 16px;
+  background-color: transparent;
+}
+input {
+  font-family: Product Sans, system, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, Segoe UI, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+input.title {
+  padding-bottom: 0.6em;
+  padding-top: 0.1rem;
+}
+
+textarea {
+  font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
+    Segoe UI, Arial, sans-serif;
+  resize: none;
+  max-height: 30vh;
+  width: 100%;
+}
+textarea.text-area {
+  font-family: Roboto, system, -apple-system, BlinkMacSystemFont, Helvetica Neue,
+    Segoe UI, Arial, sans-serif;
+  height: 30%;
+  padding: 0.5px 0px 0;
+}
+.iconsAndAddNote {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+}
+.signInNew {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  color: #202124;
+}
+
+.createNew {
+  padding-left: 2vh;
+}
+
+.submitAndClose {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteIcons {
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.mainNew {
+  padding-left: 18vh;
+}
+
+.css-17a4ieo-MuiPaper-root-MuiCard-root:hover, .css-17a4ieo-MuiPaper-root-MuiCard-root:focus {
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  -webkit-box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border: solid transparent;
+  border-width: 1px 1px 1px 6px;
+}
+.css-1v5z4dq-MuiPaper-root-MuiCard-root:focus,
+.css-1v5z4dq-MuiPaper-root-MuiCard-root:hover {
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  -webkit-box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border: solid transparent;
+  border-width: 1px 1px 1px 6px;
+}
