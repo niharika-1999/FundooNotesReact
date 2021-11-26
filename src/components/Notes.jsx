@@ -6,7 +6,7 @@ import React from "react";
 import NotesIcons from "../components/NotesIcons";
 import { useSelector } from "react-redux";
 import "../css/notes.css";
-import { updateNote } from '../Actions/notesAction';
+import { updateNote } from '../actions/notesAction';
 import { update } from '../service/notesService';
 import { useDispatch } from 'react-redux';
 import Dialog from "@mui/material/Dialog";

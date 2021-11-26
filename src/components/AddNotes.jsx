@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createNewNotes } from "../service/notesService";
 import { Button } from "@mui/material";
 import "../css/notes.css";
-import { addNote } from "../Actions/notesAction";
+import { addNote } from "../actions/notesAction";
 import { useDispatch } from "react-redux";
 
 export default function AddNotes() {

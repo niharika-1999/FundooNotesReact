@@ -1,4 +1,4 @@
-import { ActionTypes } from "../Constants/actionTypes";
+import { ActionTypes } from "../constants/actionTypes";
 
 const initialState = {
     notes: [],
