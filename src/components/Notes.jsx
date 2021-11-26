@@ -6,7 +6,7 @@ import React from "react";
 import NotesIcons from "../components/NotesIcons";
 import { useSelector } from "react-redux";
 import "../css/notes.css";
-import { updateNote } from '../redux/Actions/notesAction';
+import { updateNote } from '../Actions/notesAction';
 import { update } from '../service/notesService';
 import { useDispatch } from 'react-redux';
 import Dialog from "@mui/material/Dialog";
@@ -93,7 +93,7 @@ const Notes = ({ value }) => {
                       </div>
                       {mouseHover[singleNote] ? (
                         <div className="noteIcons">
-                          <div align="left">
+                          <div align="center">
                             <NotesIcons item={item} />
                           </div>
                         </div>

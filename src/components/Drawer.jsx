@@ -11,7 +11,7 @@ import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 
-const drawerWidth = 220;
+const drawerWidth = 190;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   top: "auto",

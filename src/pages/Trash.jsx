@@ -3,7 +3,7 @@ import Appbar from "../components/AppBar";
 import MiniDrawer from "../components/Drawer";
 import { notes } from "../service/notesService";
 import { useDispatch } from "react-redux";
-import { setNotes } from "../redux/Actions/notesAction";
+import { setNotes } from "../Actions/notesAction";
 import DeleteNote from "../components/DeleteNote";
 
 export default function Trash() {

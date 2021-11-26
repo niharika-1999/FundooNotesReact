@@ -6,7 +6,7 @@ import MiniDrawer from "../components/Drawer";
 import Notes from "../components/Notes";
 import { notes } from "../service/notesService";
 import { useDispatch } from "react-redux";
-import { setNotes } from "../redux/Actions/notesAction";
+import { setNotes } from '../Actions/notesAction';
 import AddNotes from '../components/AddNotes';
 import DeleteNote from '../components/DeleteNote';
 

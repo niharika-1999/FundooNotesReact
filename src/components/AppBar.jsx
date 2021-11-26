@@ -24,7 +24,7 @@ import SplitscreenOutlinedIcon from "@mui/icons-material/SplitscreenOutlined";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setSearchedNotes , viewList } from "../redux/Actions/notesAction";
+import { setSearchedNotes,viewList } from "../Actions/notesAction";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
