@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import Popover from "@mui/material/Popover";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import colorPalette from "./ColorToNotes";
-import { updateNote } from "../Actions/notesAction";
+import { updateNote } from "../actions/notesAction";
 import { update } from "../service/notesService";
 
 export default function NotesIcons(props) {

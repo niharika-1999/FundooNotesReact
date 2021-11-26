@@ -6,7 +6,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 import CloseIcon from "@material-ui/icons/Close";
 import { useDispatch } from "react-redux";
-import { updateNote,deleteNote } from "../Actions/notesAction";
+import { updateNote,deleteNote } from "../actions/notesAction";
 import { update, Delete } from "../service/notesService";
 import "../css/delete.css";
 import Snackbar from '@mui/material/Snackbar';
