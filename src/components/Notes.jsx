@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography, Button,CardMedia } from "@mui/material";
 import React from "react";
 import NotesIcons from "../components/NotesIcons";
 import { useSelector } from "react-redux";
@@ -22,6 +22,7 @@ const Notes = ({ value }) => {
   const [color, setColor] = React.useState("White");
   const [content, setContent] = React.useState("");
   const [noteId, setNoteId] = React.useState("");
+  const [image,setImage]=React.useState("");
   const dispatch = useDispatch();
 
   const data = {
@@ -29,6 +30,7 @@ const Notes = ({ value }) => {
     content: content,
     isTrash: false,
     color: color,
+    profileImg:image,
   };
 
   const handleClickOpen = (item) => {
@@ -37,6 +39,7 @@ const Notes = ({ value }) => {
     setNoteId(item._id);
     setOpen(true);
     setColor(item.color);
+    setImage(item.profileImg);
   };
 
   const handleClose = () => {
@@ -53,7 +56,6 @@ const Notes = ({ value }) => {
   };
 
   return myNotes.length > 0 ? (
-    <div className="mainNew">
       <Box sx={{ mx: "3px", transform: "scale(0.85)" }}>
         <Grid container spacing={3} justifyContent={viewList ? "center" : null}>
           {myNotes.map((item, singleNote) => {
@@ -85,6 +87,14 @@ const Notes = ({ value }) => {
                           handleClickOpen(item);
                         }}
                       >
+                        {(item.profileImg !== undefined ) ? (
+                          <CardMedia
+                          component="img"
+                          image={`http://localhost:5000/images/${item.profileImg}`}
+                          alt="dish"style={{  maxwidth: 238,
+                            maxHeight: 238, paddingBottom: 15 }}
+                        />
+                      ) : null}
                         <Typography variant="h5">{item.title}</Typography>
                         <br />
                         <Typography sx={{ mb: 1.2 }} color="text.secondary">
@@ -139,7 +149,6 @@ const Notes = ({ value }) => {
           </Dialog>
         </div>
       </Box>
-    </div>
   ) : (
     <span>No matching results.</span>
   );

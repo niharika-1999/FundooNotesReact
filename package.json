@@ -17,6 +17,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
+    "chromedriver": "^96.0.0",
     "cors": "^2.8.5",
     "enzyme-adapter-react-16": "^1.15.6",
     "material-ui": "^0.20.2",
@@ -30,7 +31,7 @@
     "react-select": "^5.1.0",
     "react-tap-event-plugin": "^3.0.3",
     "redux": "^4.1.2",
-    "redux-devtools": "^3.7.0",
+    "selenium-webdriver": "^4.1.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.11"

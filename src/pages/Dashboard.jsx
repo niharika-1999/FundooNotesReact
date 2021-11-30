@@ -14,6 +14,8 @@ export default function Dashboard() {
   const [open, setOpen] = useState(false);
   const [title,setTitle] = useState('FundooNotes');
   const [path,setPath] = useState("");
+  const [button, setButton] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleClick = (title) => {
@@ -38,13 +40,15 @@ export default function Dashboard() {
 
   const handleDrawer = () => {
     setOpen((previousState) => {
+      setButton(!button)
       return !previousState;
     });
 };
 
   return (
-    <div>
+    <Box>
       <Appbar handleDrawer={handleDrawer} title={title}/>
+      <Box sx={{ display: "flex"}}>
       <MiniDrawer open={open}  handleClick={handleClick} path={path} setPath={setPath}/>
       {(path==="trash") ? <DeleteNote /> :
       <div> 
@@ -54,7 +58,8 @@ export default function Dashboard() {
       </Box>
     </div>
   }
-  </div>
+  </Box>
+  </Box>
 );
 }
 

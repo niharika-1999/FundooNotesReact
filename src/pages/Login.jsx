@@ -12,6 +12,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import { Link } from "react-router-dom";
 import userPost from "../service/userService";
+import { Redirect } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = React.useState("");
@@ -19,23 +20,31 @@ export default function Login() {
     const [emailNotValid, setEmailNotValid] = React.useState(false);
     const [passwordNotValid, setPasswordNotValid] = React.useState(false);
     const [showPassword, setShowPassword] = React.useState(false);
+    const [success,setSuccess] = React.useState(false);
+
+    let EM = email;
+    let PW = password;
+    const datas = { email: EM, password: PW };
+
   
     const handleClickShowPassword = () => {
       setShowPassword(!showPassword);
     };
     const handleSubmit = (event) => {
+        let error = false;
         event.preventDefault();
-        if (email === "") setEmailNotValid(true);
-        if (password === "") setPasswordNotValid(true);
-        else {
-          userPost("users/login", {
-            email: email,
-            password: password,
-          });
-          alert("Successfully Logged In");
-          window.location = "/dashboard";
-        }
-    };
+        if (email === "") { setEmailNotValid(true); error=true; }
+        if (password === "") { setPasswordNotValid(true); error=true; }
+        if(error) {
+      console.log("Cannot Log In.");
+      alert("Login Unsuccessful.");
+    }
+    else {
+      console.log(datas)
+      userPost("users/login", datas );
+      setSuccess(true);
+    }      
+  };
     const handleClickShowPasswords = () => {
       setShowPassword(!showPassword);
     };
@@ -204,6 +213,7 @@ export default function Login() {
                         </div>
                       </div>
                     </div>
+                    {success?<Redirect to="/dashboard"/>:null}
                   </form>
                 </div>
               </div>

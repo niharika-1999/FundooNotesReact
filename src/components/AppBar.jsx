@@ -7,6 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import { useState, useEffect } from "react";
 import { styled,alpha } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
+import { Redirect } from "react-router";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
@@ -24,6 +25,7 @@ import SplitscreenOutlinedIcon from "@mui/icons-material/SplitscreenOutlined";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { removeToken } from "../utils/userTokens";
 import { setSearchedNotes,viewList } from "../actions/notesAction";
 
 const Search = styled("div")(({ theme }) => ({
@@ -91,7 +93,10 @@ export default function Appbar( {handleDrawer, title} ) {
   const list = useSelector((state) => state.allNotes.viewList);
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [signOut, setSignOut] = useState(false);
   const open = Boolean(anchorEl);
+
+  let emailAvatar = localStorage.getItem("emailAvatar");
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -103,10 +108,6 @@ export default function Appbar( {handleDrawer, title} ) {
   const handleSearch = (searchValue) => {
     setSearch(searchValue);
   };
-
-  const logoutClick = () => {
-    window.location = "/login";
-  }
 
 
   useEffect(() => {
@@ -199,7 +200,7 @@ export default function Appbar( {handleDrawer, title} ) {
             marginLeft: "25px",
           }}
         >
-          <AccountCircle sx={{ fontSize: 40, color: "#5f6368" }} />
+          <Avatar name={emailAvatar} size="32" round={true} />
         </IconButton>
         <Menu
         anchorEl={anchorEl}
@@ -233,15 +234,16 @@ export default function Appbar( {handleDrawer, title} ) {
           },
         }}
       >
-        <MenuItem onClick={logoutClick}>
+         <MenuItem onClick={()=>{removeToken();setSignOut(true)}}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Sign Out of my Account
+          Sign Out?
         </MenuItem>
       </Menu>
       </Box>
     </Toolbar>
+    {signOut ? <Redirect to="/login" /> : null}
   </AppBar>
 );
 }

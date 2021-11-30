@@ -1,4 +1,4 @@
-import { Grid, Card, Typography, Button, Box, IconButton } from "@mui/material";
+import { Grid, Card, Typography, Button, Box, IconButton ,CardMedia } from "@mui/material";
 import React from "react";
 import CardContent from "@mui/material/CardContent";
 import { useSelector } from "react-redux";
@@ -87,7 +87,7 @@ export default function DeleteNotes() {
           </Button>
         </div>
       </div>
-      <Box sx={{ mx: "5px", transform: "scale(0.8)" }}>
+      <Box sx={{ mx: "5px", transform: "scale(0.85)" }}>
         <Grid container spacing={3} justifyContent={viewList ? "center" : null}>
           {myNotes.map((item, index) => {
             if (item.isTrash === true) {
@@ -112,6 +112,14 @@ export default function DeleteNotes() {
                   >
 
                     <CardContent>
+                    {item.profileImg !== undefined ? (
+                                        <CardMedia
+                                          component="img"
+                                          image={`http://localhost:5000/images/${item.profileImg}`}
+                                          alt="dish"
+                                          style={{ height: "150px" }}
+                                        />
+                                      ) : null}
                       <Typography variant="h5">{item.title}</Typography>
                       <br />
                       <Typography sx={{ mb: 1.2 }} color="text.secondary">
@@ -164,17 +172,17 @@ export default function DeleteNotes() {
             }
           })}
         </Grid>
-        <Snackbar
-          anchorOrigin={{
-            horizontal: "right",
-            vertical: "top",
-          }}
-          open={open}
-          autoHideDuration={5000}
-          message="Note deleted permanently"
-          onClose={handleToClose}
-        />
-      </Box>
+        </Box>
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "right",
+          vertical: "bottom",
+        }}
+        open={open}
+        autoHideDuration={5000}
+        message="Note deleted permanently"
+        onClose={handleToClose}
+      />
     </div>
   );
 }

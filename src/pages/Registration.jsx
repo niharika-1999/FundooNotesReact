@@ -12,7 +12,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Link } from "react-router-dom";
+import { Link , Redirect } from "react-router-dom";
 import userPost from "../service/userService";
 
 export default function Registration() {  
@@ -29,30 +29,32 @@ export default function Registration() {
     const [passwordConfirmationNotValid, setPasswordConfirmationNotValid] = React.useState(false);
     const [showPassword, setShowPassword] = React.useState(false);
     const [showPasswordConfirmation, setShowPasswordConfirmation] = React.useState(false);
+    const [accountCreated,setAccountCreated] = React.useState(false);
     
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
     };
     const handleSubmit = (event) => {
+        let error = false;
         event.preventDefault();
-        setFirstNameNotValid(false);
-        setLastNameNotValid(false);
-        setEmailNotValid(false);
-        setPasswordNotValid(false);
-        setPasswordConfirmationNotValid(false);
-        if (!firstNameValidation.test(firstName)) setFirstNameNotValid(true);
-        if (!lastNameValidation.test(lastName)) setLastNameNotValid(true);
-        if (!emailValidation.test(email)) setEmailNotValid(true);
-        if (!passwordValidation.test(password)) setPasswordNotValid(true);
+        if (!firstNameValidation.test(firstName)) { setFirstNameNotValid(true); error=true; } 
+        if (!lastNameValidation.test(lastName)) { setLastNameNotValid(true); error=true; } 
+        if (!emailValidation.test(email)) { setEmailNotValid(true); error=true; } 
+        if (!passwordValidation.test(password)) { setPasswordNotValid(true); error=true; } 
         if (password === passwordConfirmation) {
             setPasswordConfirmationNotValid(true);
-        }
+            error=true; 
+        } if (error) {
+          console.log("Account could not be created.");
+        } else {
         userPost("users",{
             firstName: firstName,
             lastName: lastName,
             email: email,
             password: password,
           });
+          setAccountCreated(true);
+        }
       };
     const handleClickShowPasswordConfirmation = () => {
         setShowPasswordConfirmation(!showPasswordConfirmation)
@@ -317,6 +319,7 @@ export default function Registration() {
                       />
                     </div>
                   </div>
+                  {accountCreated?<Redirect to="/login"/>:null}
                 </form>
               </div>
             </div>
